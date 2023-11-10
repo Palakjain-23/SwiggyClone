@@ -1,0 +1,151 @@
+-D we want parcel to be developer depandancy
+^ caret it upgade the version
+~ tilde it upgrade the version to next version
+depandancy means react app depend on pakages
+package-lock-josn : tells exact version 
+                  : lock the version
+
+node-modules : are like databse to npm
+package-lock-josn : keeps the track of node-modules
+npx parcel : execute using npm
+
+hot module reload:done by parcel (it keep track of every changes )
+file watcher algorithm(parcel does use this) :
+
+parcel-cache : 
+dist : minifying
+
+Transitive Dependencies : we we make a development app which does chaching,minifying these dependencies depends on other dependencies
+is called transitive-dependencies
+polyfill : converting modern verion code to older versions
+babel : it does polyfill
+npm : used when 
+react.createElement=>object=>HTML(Document)
+Components--------------------------------
+--Functional components
+--class based components
+component composition : if we want to use component inside another component{example </title>}
+// const heading=React.createElement(
+//     "h1",
+//     {
+//         id:"title",
+//         key:"h1",
+//     },
+//     "Heading 1"
+// );
+// const heading2=React.createElement(
+//     "h1",{
+//         id:"title2",
+//         key:"h1",
+//     },
+//     "Heading 2"
+// );
+// const container=React.createElement(
+//     "div",{},[heading,heading2]
+// );
+//React Element
+const Title=()=>(
+    <h1 id="title" key="h2">
+        Heading 1
+    </h1>
+);
+//React Component
+const HeaderComponent =()=>{
+return(
+    <div>
+    <Title/>
+        <h1>React Basics</h1>
+    </div>
+);
+};
+ const root=ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<HeaderComponent/>);
+
+ReactHook------------------------------------------------
+it is simple function  
+whenever state variable changes react rerender its components and react triggers a reconciliation
+
+--------Reconciliation algorithm(---REACT FIBER-------){
+virtual dom -----------is a representation of actual dom 
+
+diff algorithm ----------finds difference between two virtual dom
+}
+
+-------React is fast because it does efficient dom manipulation because it have virtual dom--------------------------------
+
+############-------------Lecture 6----------------############
+       1--  APPROACHES
+              -> LOADS -> API ->RENDER 
+              -> LOADS -> RENDER -> API -> RENDER
+
+        2   USE EFFECT----------------
+                (hook) if we want to render something after the render cycle we write in useEffect
+                it takes two parameters
+                -> callback function
+                -> dependency array (not mendatory)
+                   if no dependency array is provided then use effect is called in every render
+                   if empty depandancy array use effect is called initial render and only once
+        3   UseState --------------------------------
+                It is used for creating local state variable
+                It is always created inside the component 
+                Never used this inside conditional statement,for loop,or inside a function
+
+        4   Local State variable----------
+               React requires state variables as it does not keep track of local variables, so when you
+               attempt to modify them, React does not re-render the DOM. In React, state is a JavaScript
+               object that stores data that can be modified over time.When the state of a component changes,
+               React updates the UI to reflect the new state.
+
+       5    Promise in javascript---------------
+                IT is a Placeholder that can be filled later until we get 
+                It is object represntating eventually completion or failure of an asyn operation
+
+############-------------Lecture 7----------------############
+       
+       1   Link 
+            is used to link between pages 
+
+       2   diff b/w Link and a tags
+            link - refresh the component not whole pages
+                   this is why it is called single page website 
+            a -   reload whole page  
+
+       3    types of routing in javascript
+                Client side routing- rounting inreact occur and only one network call
+                Server side routing- it make network call the fetches the page then whole page is reloaded 
+        
+        4   rounting Configuration
+                createBrowserRouter
+                RouterProvider-it provides routing Configuration
+                ChildrenRoute
+
+        5   error handling
+                 useRouterError -gives more info about the error
+                                -error status
+                                -error statusText        
+        6   Outlet 
+                whenever their is a change in path it fills with the path
+
+Parent constructor
+Parent render
+child  constructor
+child render
+child componentDidMount
+parent componentDidMount
+
+//--------Mounting------------
+constructor(dummy data)
+render(dummy data)
+       <HTML dummy>
+//-------Update---------------
+render(api data)
+<HTML api data>
+componentDidMount Update       
+
+///-----------------Lazy Loading--------------------------------
+if we want different components to be bundled togther here different bundles have different js files
+like in swiggy their is instamart and food delivery 
+
+/////-----higher order components-----------------
+     takes a component and returns a component

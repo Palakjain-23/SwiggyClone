@@ -1,39 +1,28 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import {MENU_API} from "../utils/constant";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 import "../index.css";
 const RestaurantMenu=()=>{
     const {resId} = useParams();
-    const[resInfo,setResInfo]=useState(null);
-    useEffect(()=>{
-        fetchMenu();
-
-    },[])
-    const fetchMenu = async () => {
-        const data = await fetch(MENU_API + resId );
-            const json = await data.json();
-            setResInfo(json);
-            console.log(resInfo);
-    } ;
+    const resInfo=useRestaurantMenu(resId);
     if  (resInfo === null) return <Shimmer/>;
-    const {name,cuisines,costForTwoMessage}=resInfo?.data.cards[0]?.card?.card?.info;
-    const{itemCards}=resInfo?.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    const {name,cuisines,costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
+    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
+     const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter
+     (c=>c.card?.card?.["@type"]===
+     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+     );
+    //console.log(categories);
     return(
-        <div>
-            <h1>{name}</h1>
-            <p>
-            {cuisines.join(",")}-{costForTwoMessage}
-            </p>
-            <h3>Menu</h3>
-            <ul>
-            {itemCards.map((item)=>(
-                 <li key={item.card.info.id}>
-                 {item.card.info.name}-{" Rs "}
-                    {item.card.info.price/100}</li>
-                 ))}
-            </ul>
-        </div>
-    )
+      <div className="text-center m-4 p-2">
+        <h1 className="font-bold m-2 p-2 text-xl">{name}</h1>
+        <h2 className=" m-2 p-2 text-lg">{cuisines.join(", ")}-{costForTwoMessage}</h2>
+        { categories.map((category)=>(
+            <RestaurantCategory key={category.card.card.title} data={category?.card?.card}/>
+        ))}
+      </div>
+    );
 }
 export default RestaurantMenu;
