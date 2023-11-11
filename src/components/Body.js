@@ -4,6 +4,8 @@ import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import "../index.css";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
+import { useContext } from "react";
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);//seetlistofres is used to update listofrestaurants
     const [filterdRestaurants, setFilterdRestaurants] = useState([]);
@@ -20,8 +22,9 @@ const Body = () => {
         setFilterdRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
-    console.log(listOfRestaurants);
+    //console.log(listOfRestaurants);
 
+     const{setUserName} = useContext(UserContext);
     const onlineStatus = useOnlineStatus();
     if (onlineStatus === false)
         return (
@@ -55,7 +58,13 @@ const Body = () => {
                     >
                         Top Rated Restaurants
                     </button>
+                   
                 </div>
+                <div className="m-11">
+                <label>Username</label>
+                <input type="search" className="border w-13 h-4 mx-2 border-black p-2"></input>
+                </div>
+                    
 
             </div>
             <div className="flex flex-wrap justify-center">

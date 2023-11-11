@@ -147,5 +147,23 @@ componentDidMount Update
 if we want different components to be bundled togther here different bundles have different js files
 like in swiggy their is instamart and food delivery 
 
+--------------Lecture 11---------------------
 /////-----higher order components-----------------
-     takes a component and returns a component
+    ----takes a component and returns a component
+
+
+
+-------Props Drilling---(when we pass props from one component to deep level components)
+-------to solve this we keep the data in central place (context)
+
+//----------Redux-------------
+-------redux tool kit--------
+      click on add ---> it dispatches a action ---->it will call reducer function----> which updates a slice of redux store 
+      header component is subscribe to store through a selector 
+
+      -Install @reduxjs/toolkit and react redux 
+      -build store
+      -connect our store to our app
+      -slice (cartSlice)
+      -dispatche(Action)
+      -selector

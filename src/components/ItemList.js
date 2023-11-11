@@ -1,7 +1,13 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constant";
 
 const ItemList = ({ items }) => {
-    console.log(items);
+   
+    const dispatch =useDispatch();
+    const handelAddItem=(item)=>{
+        dispatch(addItem(item));
+    }
     return (
         <div>
             {items.map((item) => (
@@ -10,14 +16,22 @@ const ItemList = ({ items }) => {
                     <div className="w-9/12">
                         <div className="py-2">
                             <span>{item.card.info.name}</span>
-                            <span>- ⟨₹⟩ {item.card.info.price / 100}</span>
+                            <span>- ⟨₹⟩
+                            {item.card.info.price
+                            ? item.card.info.price / 100
+                            : item.card.info.defaultPrice/100}
+                            </span>
                         </div>    
                             <p className="text-xs "> {item.card.info.description}</p>
                      </div>
                         
                         <div className="w-3/12 p-4 ">
                         <div className="absolute">
-                             <button className="bg-black text-white p-2 bottom-0 rounded-lg">+ ADD</button>
+                             <button className="bg-black mx-16 text-white text-sm rounded-br-lg rounded-tr-lg p-1 hover:text-black hover:bg-white hover:border-black"
+                             onClick={() => handelAddItem(item)} >
+                             + ADD
+                             </button>
+                            
                         </div>
                         <img src={CDN_URL + item.card.info.imageId} className="w-full" />   
                     </div>
