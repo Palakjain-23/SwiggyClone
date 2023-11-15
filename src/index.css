@@ -2,3 +2,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:global {
+    @import 'node_modules/slick-carousel/slick/slick';
+}
+.active {
+    background-color: #4caf50; /* Change this to your desired active color */
+    color: #fff; /* Change this to your desired text color for active state */
+  }
+/* shimmer ui */
+
+.box{
+    background: #ddd;
+    width: 272px;
+    position: relative;
+    padding: 15px 15px 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  .box .line{
+    width: 100%;
+    height: 10px;
+    background: #bbb;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  .box .img{
+    width: 100%;
+    height: 140px;
+    background: #bbb;
+    border-radius: 5px;
+  }
+  
+  .shimmer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 90%;
+    height: 100%;
+  
+    background: linear-gradient(100deg,
+    rgba(142, 141, 141, 0) 10%,
+    rgba(157, 155, 155, 0.5) 60%,
+    rgba(255,255,255,0) 80%);
+  
+    animation: shimmer 2s infinite linear;
+  }
+  
+  @keyframes shimmer{
+    from {
+        transform: translateX(-180%);
+    }
+    to{
+        transform: translateX(180%);
+    }
+  }

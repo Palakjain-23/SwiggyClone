@@ -6,3 +6,5 @@ export const LOGO_CDN=
 export const MENU_API=
 "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.3164945&lng=78.03219179999999&restaurantId=";
 // "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.3164945&lng=78.03219179999999&restaurantId=532213";//&catalog_qa=undefined
+export const Banner_IMG = 
+"https://media-assets.swiggy.com/swiggy/image/uploa%E2%80%A6ousel/production/";
