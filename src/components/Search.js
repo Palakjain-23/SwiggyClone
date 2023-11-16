@@ -15,14 +15,14 @@ const Search = () => {
     
     return (
         <div>
-            <div className="search m-4 p-8 flex justify-center">
-                <input type="text" className="border border-solid border-black  w-1/3 mx-4 p-3 rounded-lg  " placeholder="search restaurants and food"
+            <div className="search m-4 p-10 flex justify-center">
+                <input type="text" className="border border-solid border-black  w-3/4 mx-4 p-3 rounded-lg  " placeholder="search restaurants and food"
                     value={searchText}
                     onChange={(e) => {
                         setSearchText(e.target.value);
                     }}
                 />
-                <button className=" px-2 py-2 bg-green-500 rounded-lg align-middle hover:shadow-lg" onClick={() => {
+                <button className="ml-5 px-2 py-2 bg-green-500 rounded-lg align-middle hover:shadow-lg" onClick={() => {
                     const filteredList = restaurants.filter(
                         (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                     );
@@ -40,7 +40,16 @@ const Search = () => {
                         <RestaurantCard resData={res} />
                     </Link>
                 ))}
-            </div>):<MenuItems data={menuItemData} /> 
+            </div>):(
+                <div className="flex flex-col px-36">
+                <div className="w-full bg-slate-100 h-1 shadow-md"></div>
+                <div className= "">
+                <h2 className="m-2 p-2 font-bold text-xl">Popular Cuisines</h2>
+                <MenuItems data={menuItemData} />
+                </div>
+                <div className="w-full bg-slate-100 h-1 shadow-md"></div>
+                </div>
+                ) 
             }
         </div>
     )
