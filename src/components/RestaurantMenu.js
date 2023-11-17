@@ -19,15 +19,15 @@ const RestaurantMenu = () => {
     (c => c.card?.card?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(categories);
+  //console.log(categories);
   return (
-    <div className="m-4 p-2">
+    <div className="m-0 p-4 bg-gray-100">
       <div className="flex m-auto w-6/12 mt-10 justify-between">
         <div className="flex flex-col justify-between ">
           <h1 className="font-bold text-2xl p-2">{name}</h1>
           <h2 className="text-sm p-2">{cuisines.join(", ")}</h2>
         </div>
-        <div className="flex flex-col shadow-xl p-2">
+        <div className="flex flex-col bg-white shadow-xl p-2">
           <div className="flex"> 
              <div className="p-1 flex justify-center align-middle"><img src="https://img.freepik.com/free-vector/start_53876-25533.jpg?size=626&ext=jpg" className="h-9 w-10"></img></div> 
             <div className="p-1"><h4 className="text-xl">{avgRating}</h4></div>

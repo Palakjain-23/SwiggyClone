@@ -1,7 +1,7 @@
 const Footer=()=>{
     return(
         <div>
-        <div className="flex w-full h-auto mt-28 bg-slate-100">
+        <div className="flex w-full h-auto  bg-slate-100">
            <div className="flex w-2/3 h-auto m-auto bg-slate-100">
                 <div className="p-5"> 
                     <h1  className="text-center text-lg font-bold">For better experience,download </h1>
