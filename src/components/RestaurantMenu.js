@@ -2,15 +2,19 @@ import Shimmer from "./Shimmer";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import RestaurantCategory from "./RestaurantCategory";
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import TimelapseSharpIcon from '@mui/icons-material/TimelapseSharp';
+import RestaurantCategory from "./RestaurantCategory";
 import "../index.css";
 const RestaurantMenu = () => {
   const { resId } = useParams();
+  const [expanded, setExpanded] = useState(false);
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   //console.log("log in restaurantmanu",restaurants);
   const resInfo = useRestaurantMenu(resId);
-  const [showIndex, setShowIndex] = useState(null);
+ // const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) return <Shimmer />;
   const { name, cuisines, costForTwoMessage,avgRating} = resInfo?.cards[0]?.card?.card?.info;
@@ -19,7 +23,7 @@ const RestaurantMenu = () => {
     (c => c.card?.card?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  //console.log(categories);
+  console.log(categories);
   return (
     <div className="m-0 p-4 bg-gray-100">
       <div className="flex m-auto w-6/12 mt-10 justify-between">
@@ -49,12 +53,10 @@ const RestaurantMenu = () => {
         </div>
       </div>
     
-      {categories.map((category, index) => (
+      {categories.map((category) => (
         <RestaurantCategory
           key={category.card.card.title}
           data={category?.card?.card}
-          showItem={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
         />
       ))}
     </div>

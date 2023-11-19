@@ -11,10 +11,9 @@ const Cart = () => {
     const handelClearCart = () => {
         dispatch(clearCart());
     };
+    const totalPrice = useSelector((store) => store.cart.totalPrice);
     return (
         <div className="text-center m-0 p-0 bg-gray-100">
-            <span className="font-bold text-2xl mt-5">Cart</span>
-            <div className="w-6/12 m-auto">
                 {items.length === 0 ? (
                     <div className="flex flex-col align-middle mt-5 pb-14">
                         <div className="flex justify-center mb-8">
@@ -29,7 +28,9 @@ const Cart = () => {
                         </div>                        
                     </div>
                 ) : (
-                    <div className="mt-8 pb-20">
+                <div className="flex">
+                <div className="flex justify-end mr-20 w-9/12">
+                    <div className="mt-16 ">
                         <div className="flex justify-between border-gray-200 border-b-2 font-semibold py-2">
                             <div className="w-1/4 py-2">
                                 <span className="mx-24 place-items-start">Item</span>  
@@ -39,55 +40,48 @@ const Cart = () => {
                                     <span className="mx-10">Quantity</span>
                                 </div>
                                 <div className="px-2">
-                                    <button onClick={handelClearCart} className="px-2 rounded-lg border hover:border-white text-white bg-gray-800 ">Clear Cart</button>   
+                                    <button onClick={handelClearCart} className="px-2 py-1 bg-gray-800 text-white border text-xs hover:border-black rounded-lg">Clear Cart</button>   
                                 </div>
                             </div>    
                         </div>
-                        {/* <button
-                            className="p-2 m-2 bg-black text-slate-50 rounded-lg"
-                            onClick={handelClearCart}>
-                            Clear Cart
-                        </button> */}
-                        {/* <ItemList items = {cartItems} /> */}
-                        <div className="mt-8 mb-10 bg-white p-2">
+                        <div className="mt-8 mb-10 bg-white px-2 py-1">
                             {items.map((item) => (  
-                                <InnerCart cartData={item}
+                                <InnerCart cartData = {item}
                                 />                            
-                             //here below code to be pasted if anything goes wrong
                             ))}
                         </div>
-                        <div className=" border-gray-200 border-t-2">
+                        {/* <div className=" border-gray-200 border-t-2">
                             <button className="p-2 rounded-lg border hover:border-red-500 text-white bg-red-400 m-5">Checkout</button>
-                        </div>
+                        </div> */}
+                     </div>        
                     </div>
+                    <div className="bg-white w-1/4 p-2 mt-8 mr-8 h-80 rounded-lg border hover:border-gray-200">
+                       <div className="mx-3  py-4 border-b-2 border-gray-200 ">
+                          <span className="font-bold ">Order Summary</span>
+                       </div>
+                       <div className="flex mt-2">
+                            <span className="w-6/12 p-2">Item Total</span>
+                            <span className="w-6/12 p-2">₹ {totalPrice.toFixed(2)}</span>
+                       </div>                           
+                       <div className="flex mt-2">
+                            <span className="w-6/12 p-2">Delivery Charges</span>
+                            <span className="w-6/12 p-2">00.00</span>
+                       </div>
+                       <div className="flex mt-2">
+                            <span className="w-6/12 p-2">Tax</span>
+                            <span className="w-6/12 p-2">00.00</span>
+                       </div>
+                       <div className="flex mt-2">
+                            <span className="w-2/5 p-2">Total ₹ {totalPrice.toFixed(2)}</span>
+                            <div className="w-3/5">
+                                <button className="m-2 px-2 py-3  text-xs text-white font-bold rounded-lg border hover:border-red-500 text-white bg-red-400">Place Order</button>
+                            </div>                   
+                       </div>
+                    </div>
+                </div>
                 )}
-            </div>
+            
         </div>
     )
 }
 export default Cart;
-
-{/* <div className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between"
-                                    key={item?.card?.info?.id}>
-                                    <div className="w-9/12">
-                                        <div className="py-2">
-                                            <span>{item?.card?.info?.name}</span>
-                                            <span>- ⟨₹⟩
-                                                {item?.card?.info?.price
-                                                    ? item?.card?.info?.price / 100
-                                                    : item?.card?.info?.defaultPrice / 100}
-                                            </span>
-                                        </div>
-                                        <p className="text-xs "> {item?.card?.info?.description}</p>
-                                    </div>
-                                   
-                                    
-                                    <div className="w-3/12 p-4 relative">
-                                        <img src={CDN_URL + item?.card?.info?.imageId} className="w-full h-auto" />
-                                        <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-                                            <button className="text-green-500 bg-white px-2 py-2 text-base font-bold" onClick={() => handleDecreaseQuantity(item?.card?.info?.id)}>-</button>
-                                            <button className="text-green-500 bg-white border  px-2 py-2 text-base font-bold">{item?.card?.info?.quantity}</button>
-                                            <button className="text-green-500 bg-white border  px-2 py-2 text-base font-bold" onClick={() => handleIncreaseQuantity(item?.card?.info?.id)}>+</button> 
-                                        </div>
-                                    </div>
-                                </div> */}

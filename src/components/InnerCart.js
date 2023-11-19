@@ -27,9 +27,9 @@ const InnerCart=(props)=>{
     //console.log("quantity",cartData.quantity);
     // const [quantityItem]=useState(quantity);
     return(
-        <div className="border-gray-200 border-b-2 text-left py-4 flex justify-between h-40"
+        <div className="border-gray-200 border-b-2 w-full mx-24 text-left py-2 flex justify-between h-36"
             key={id}>
-            <div className="w-3/4 ">
+            <div className="w-3/5 ">
                 <div className="py-2">
                     <span className="font-semibold">{name}</span>
                     <span>- ⟨₹⟩{price
@@ -39,8 +39,8 @@ const InnerCart=(props)=>{
                 </div>
                 <p className="text-xs ">{description}</p>
             </div>
-            <div className="w-2/4 px-10 py-4  relative">
-                <img src={CDN_URL + imageId} className="w-full h-auto object-cover" />
+            <div className="w-2/5 px-10 py-4  relative">
+                <img src={CDN_URL + imageId} className="w-full h-3/4" />
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center">
                     <button className="text-green-500 bg-white px-2 py-2 text-base font-bold" onClick={() => handleDecreaseQuantity(id)}>
                     <RemoveIcon/>
@@ -57,8 +57,8 @@ const InnerCart=(props)=>{
                     </button> 
                 </div>
             </div>
-            <div className="w-1/4 flex justify-center items-center">
-                <button onClick={() => handleRemove(id)}>
+            <div className="w-1/6 flex justify-center items-center">
+                <button  onClick={() => handleRemove(id)}>
                     <DeleteRoundedIcon  fontSize="large"/>
                 </button>
             </div>

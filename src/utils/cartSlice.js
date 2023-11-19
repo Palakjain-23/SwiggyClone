@@ -1,27 +1,38 @@
-import { createSlice ,current} from '@reduxjs/toolkit';
+import { createSlice,current } from '@reduxjs/toolkit';
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     items: [],
+    totalPrice: 0, // New state to hold the total price
   },
   reducers: {
     addItem: (state, action) => {
-    const { name } = action.payload;
-    console.log(name);
-    //console.log(current(state));
-    //const existingItem = state.items.find((item)=>item.card.info.name === name);
-    const existingItem = state.items.find((item)=>{
-      console.log(item.card.info.name);
-      return item.card.info.name === name
-    });
-    if(existingItem){
-        existingItem.quantity += 1; 
-        //existingItem.price ? state.sum+=existingItem.item.card.info.price : state.sum+=existingItem.defaultPrice;
-    }else{
-        state.items.push({...action.payload,quantity:1,sum:0});    
-        //action.payload.price ? state.sum+=action.payload.price : state.sum+=action.payload.defaultPrice;
-    }
+      const existingItem = state.items.find((item) => item.card.info.id === action.payload.card.info.id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        const newItem = { ...action.payload, quantity: 1 };
+        state.items.push(newItem);
+      }
+      state.totalPrice = calculatePrice(state.items); // Calculate total price
+      console.log(current(state));
+    },
+    increaseQuantity: (state, action) => {
+      const { itemId } = action.payload;
+      const itemToIncrease = state.items.find((item) => item.card.info.id === itemId);
+      if (itemToIncrease) {
+        itemToIncrease.quantity++;
+        state.totalPrice = calculatePrice(state.items); // Recalculate total price
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const { itemId } = action.payload;
+      const itemToDecrease = state.items.find((item) => item.card.info.id === itemId);
+      if (itemToDecrease && itemToDecrease.quantity > 1) {
+        itemToDecrease.quantity--;
+        state.totalPrice = calculatePrice(state.items); // Recalculate total price
+      }
     },
     removeItem: (state, action) => {
       const {itemId}=action.payload;
@@ -31,28 +42,20 @@ const cartSlice = createSlice({
         state.items.splice(index, 1);
       }
     },
-    increaseQuantity: (state, action) => {
-      const { itemId } = action.payload;
-      const itemToIncrease = state.items.find(item=>item.card.info.id === itemId);
-      // console.log(itemId);
-      // console.log(current(state));
-      // console.log(current(itemToIncrease));
-      if (itemToIncrease) {
-        itemToIncrease.quantity++;
-      }
-    },
-    decreaseQuantity: (state, action) => {
-      const { itemId } = action.payload;
-      const itemToDecrease = state.items.find(item => item.card.info.id === itemId);
-      if (itemToDecrease && itemToDecrease.quantity > 1) {
-        itemToDecrease.quantity--;
-      }
-    },
     clearCart: (state) => {
       state.items = [];
     },
   },
 });
+
+// Function to calculate total price based on items in the cart
+const calculatePrice = (items) => {
+  return items.reduce((total, item) => {
+    return total + (item.card.info.price/100 || item.card.info.defaultPrice/100) * item.quantity;
+  }, 0);
+};
+
+// Export actions and reducer
 export const {
   addItem,
   removeItem,
