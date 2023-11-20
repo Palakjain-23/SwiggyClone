@@ -14,13 +14,13 @@ const Header = () => {
   return (
     <div className="flex justify-between shadow-lg">
       <div className="mx-6 my-2">
-        <img className="w-24" src="food-logo.png" alt="logo_image"></img>
+        <img className="w-24 " src="food-logo.png" alt="logo_image"></img>
       </div>
       <div >
         <ul className="flex p-8 m-2 text-lg">
         <li className={`mx-5 p-2 ${location.pathname === '/' ? 'text-green-500' : ''}`}>
             <Link to="/" className="flex justify-center">
-              <HomeIcon />Home
+              <HomeIcon fontSize="medium"/>Home
             </Link>
           </li>
           <li className={`mx-7 p-2 ${location.pathname === '/search' ? 'text-green-500' : ''}`}>
@@ -33,7 +33,7 @@ const Header = () => {
               <ShoppingCartIcon /> Cart({cartItems.length})
             </Link>
           </li>
-          <button className="mx-7 border border-solid bg-red-600 shadow-lg p-2 rounded-lg font-bold" onClick={() => {
+          <button className="mx-7 border bg-red-500 hover:border-red-600 shadow-lg p-2 rounded-lg font-bold" onClick={() => {
             btnNameReact === "Login" ? setbtnNameReact("Logout")
               : setbtnNameReact("Login");
           }}>

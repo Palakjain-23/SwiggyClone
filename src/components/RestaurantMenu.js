@@ -1,4 +1,4 @@
-import Shimmer from "./Shimmer";
+import Shimmer2 from "./Shimmer2";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
   const resInfo = useRestaurantMenu(resId);
  // const [showIndex, setShowIndex] = useState(null);
 
-  if (resInfo === null) return <Shimmer />;
+  if (resInfo === null) return <Shimmer2/>;
   const { name, cuisines, costForTwoMessage,avgRating} = resInfo?.cards[0]?.card?.card?.info;
   const {deliveryTime}=resInfo?.cards[0]?.card?.card?.info?.sla;
   const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter

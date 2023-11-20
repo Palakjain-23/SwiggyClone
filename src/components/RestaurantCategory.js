@@ -15,32 +15,7 @@ const RestaurantCategory = ({data}) => {
   const dispatch = useDispatch();
     const handelAddItem = (item) => {
         dispatch(addItem(item));
-    };      
-  //console.log(data);
-//   const handelClick=()=>{
-//     setShowIndex();
-//   };
-//   return (
-//     <div>
-//       <div className="w-6/12 bg-gray-50 mx-auto shadow-lg my-4">
-//         <div className="flex justify-between p-3 " onClick={handelClick}>
-//           <span className="font-bold ">{data.title} ({data.itemCards.length})</span>
-//           <span>🔽</span>
-//         </div>
-//         {/* { showItem === true && <ItemList items={data.itemCards}/>} */}
-//         {showItem === true && (
-//       <div>
-//         {data.itemCards.map((item) => (
-//         <ItemList key={item.id} items={item} />
-//       ))}
-//   </div>
-// )}
-
-//       </div>
-//     </div>
-//   );
-// };
-// export default RestaurantCategory;
+    };
 return(
   <div className={"w-6/12 m-auto"}>
   <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1') } className="mb-5">
@@ -56,9 +31,6 @@ return(
   <AccordionDetails >
     <Typography>
     <div>
-      {/* {data.itemCards.map((item) => (
-        <ItemList items={item} />
-       ))} */}
        {data.itemCards.map((item) => (
         <div className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between"
                     key={item?.card?.info?.id}>
@@ -92,8 +64,3 @@ return(
 );
 };
 export default RestaurantCategory;
-// {items.map((item) => (  
-//   <InnerCart cartData = {item}
-//   />                            
-// //here below code to be pasted if anything goes wrong
-// ))}

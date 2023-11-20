@@ -7,11 +7,15 @@ const Footer=()=>{
                     <h1  className="text-center text-lg font-bold">For better experience,download </h1>
                     <h1 className="text-center text-lg font-bold">the Swiggy app now</h1>
                 </div>
-                <div className="ml-20"> 
-                    <img src="playstore.png" className="h-20"/>  
+                <div className="ml-20">
+                <a href="https://play.google.com/store/apps/details?id=in.swiggy.android&referrer=utm_source%3Dswiggy%26utm_medium%3Dheader">
+                    <img src="playstore.png" alt="Swiggylink" className="h-20"/>  
+                </a>
                 </div>
                 <div className="ml-20"> 
-                    <img src="appstore.png" className=" h-20"/>
+                <a href="https://apps.apple.com/in/app/swiggy-food-grocery-delivery/id989540920?referrer=utm_source%3Dswiggy%26utm_medium%3Dhomepage">
+                    <img src="Appstore.png" alt="Swiggylink" className=" h-20"/>
+                </a>    
                 </div> 
             </div>
         </div> 
