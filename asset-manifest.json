@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/FlavourFleet/static/css/main.2fdd9b67.css",
+    "main.js": "/FlavourFleet/static/js/main.277a4479.js",
+    "static/media/slick.svg": "/FlavourFleet/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/FlavourFleet/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/FlavourFleet/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/FlavourFleet/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/FlavourFleet/index.html",
+    "main.2fdd9b67.css.map": "/FlavourFleet/static/css/main.2fdd9b67.css.map",
+    "main.277a4479.js.map": "/FlavourFleet/static/js/main.277a4479.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fdd9b67.css",
+    "static/js/main.277a4479.js"
+  ]
+}
