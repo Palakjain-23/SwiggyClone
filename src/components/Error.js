@@ -3,8 +3,6 @@ const Error=()=>{
     const err=useRouteError();
     return(
         <div>
-            <h1>OPPS !!! you did something very wrong </h1>
-            <h3>Mistakenly</h3>
             <h2>Something went wrong</h2>
             <h3>
                 {err.status}:{err.statusText}
