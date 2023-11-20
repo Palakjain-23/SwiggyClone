@@ -23,7 +23,7 @@ const Footer=()=>{
 
         <div className="flex bg-black w-full  text-white justify-center">
             <div className="p-6 text-lg">
-                <img src="food-logo.png" className="w-24"/>
+                <img alt="Logo" src="food-logo.png" className="w-24"/>
                 <h3 className="font-bold">© 2023 Bundl Technologies Pvt. Ltd</h3>
             </div>
             <div className="p-6" >

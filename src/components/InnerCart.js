@@ -40,7 +40,7 @@ const InnerCart=(props)=>{
                 <p className="text-xs ">{description}</p>
             </div>
             <div className="w-1/4 mx-10 py-4  relative">
-                <img src={CDN_URL + imageId} className="w-full h-3/4" />
+                <img alt="images" src={CDN_URL + imageId} className="w-full h-3/4" />
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center">
                     <button className="text-green-500 bg-white px-2 py-2 text-base font-bold" onClick={() => handleDecreaseQuantity(id)}>
                     <RemoveIcon/>

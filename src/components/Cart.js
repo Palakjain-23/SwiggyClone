@@ -17,7 +17,7 @@ const Cart = () => {
                 {items.length === 0 ? (
                     <div className="flex flex-col align-middle mt-0 pt-5 pb-20">
                         <div className="flex justify-center mb-8">
-                            <img src="emptycart.png" className="w-60 h-auto flex justify-center" />
+                            <img alt="emptycart" src="emptycart.png" className="w-60 h-auto flex justify-center" />
                         </div>
                         <div>
                         <h1 className="font-bold text-xl">Your cart is empty</h1>
