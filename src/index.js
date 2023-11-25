@@ -23,14 +23,14 @@ const AppLayout = ()=>{
     )
 };
 const appRouter = createBrowserRouter([
-    {path:"/", element: <AppLayout/>,errorElement:<Error/>,children:[
-        {path:"/", element:<Body/>},
-        {path:"/search", element:<Search/>},
-        {path:"/restaurants/:resId",element:<RestaurantMenu/>},
-        {path:"/cart",element:<Cart/>}, 
+    {path:"/FlavourFleet/", element: <AppLayout/>,errorElement:<Error/>,children:[
+        {path:"/FlavourFleet/", element:<Body/>},
+        {path:"/FlavourFleet/search", element:<Search/>},
+        {path:"/FlavourFleet/restaurants/:resId",element:<RestaurantMenu/>},
+        {path:"/FlavourFleet/cart",element:<Cart/>}, 
      ]
     },
-    {path:"/OrderPlaced",element:<OrderPlaced/>}, 
+    {path:"/FlavourFleet/OrderPlaced",element:<OrderPlaced/>}, 
 
 ]);
 const root=ReactDOM.createRoot(document.getElementById("root"));

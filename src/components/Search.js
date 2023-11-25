@@ -36,7 +36,7 @@ const Search = () => {
                 {filterdRestaurants.map((res) => (
                     <Link
                         key={res.info.id}
-                        to={"/restaurants/" + res.info.id} >
+                        to={"/FlavourFleet/restaurants/" + res.info.id} >
                         <RestaurantCard resData={res} />
                     </Link>
                 ))}

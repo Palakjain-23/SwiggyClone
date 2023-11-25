@@ -9,7 +9,7 @@ const OrderPlaced=()=>{
            </div>
            <div className="text-center mt-6">
             <h3 className="font-bold text-lg">Your order has been successfully completed placed</h3>
-            <Link to="/">
+            <Link to="/FlavourFleet/">
             <button className ="mt-10 p-2 text-white bg-green-400 border rounded-xl hover:border-green-400 ">Order More</button>
             </Link>
             

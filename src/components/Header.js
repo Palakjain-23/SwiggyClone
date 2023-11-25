@@ -18,18 +18,18 @@ const Header = () => {
       </div>
       <div >
         <ul className="flex p-8 m-2 text-lg">
-        <li className={`mx-5 p-2 ${location.pathname === '/' ? 'text-green-500' : ''}`}>
-            <Link to="/" className="flex justify-center">
+        <li className={`mx-5 p-2 ${location.pathname === '/FlavourFleet/' ? 'text-green-500' : ''}`}>
+            <Link to="/FlavourFleet/" className="flex justify-center">
               <HomeIcon fontSize="medium"/>Home
             </Link>
           </li>
-          <li className={`mx-7 p-2 ${location.pathname === '/search' ? 'text-green-500' : ''}`}>
-            <Link to="/search" className="flex justify-center">
+          <li className={`mx-7 p-2 ${location.pathname === '/FlavourFleet/search' ? 'text-green-500' : ''}`}>
+            <Link to="/FlavourFleet/search" className="flex justify-center">
               <SearchIcon />Search
             </Link>
           </li>
-          <li className={`mx-7 p-2 ${location.pathname === '/cart' ? 'text-green-500' : ''}`}>
-            <Link to="/cart" className="flex justify-center mx-1">
+          <li className={`mx-7 p-2 ${location.pathname === '/FlavourFleet/cart' ? 'text-green-500' : ''}`}>
+            <Link to="/FlavourFleet/cart" className="flex justify-center mx-1">
               <ShoppingCartIcon /> Cart({cartItems.length})
             </Link>
           </li>

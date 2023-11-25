@@ -98,7 +98,7 @@ const Body = () => {
           {showFilteredResults ? (
             filterdRestaurants && filterdRestaurants.map((res) => {
               return (
-                <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
+                <Link key={res.info.id} to={"/FlavourFleet/restaurants/" + res.info.id}>
                   <RestaurantCard resData={res} />
                 </Link>
               )
@@ -107,7 +107,7 @@ const Body = () => {
           ) : (
             restaurants && restaurants.map((res) => {
               return (
-                <Link key={res.id} to={"/restaurants/" + res.info.id}>
+                <Link key={res.id} to={"/FlavourFleet/restaurants/" + res.info.id}>
                   <RestaurantCard resData={res} />
                 </Link>
               )
