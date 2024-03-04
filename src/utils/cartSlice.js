@@ -16,7 +16,7 @@ const cartSlice = createSlice({
         state.items.push(newItem);
       }
       state.totalPrice = calculatePrice(state.items); // Calculate total price
-      console.log(current(state));
+      // console.log(current(state));
     },
     increaseQuantity: (state, action) => {
       const { itemId } = action.payload;
@@ -35,11 +35,11 @@ const cartSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
-      const {itemId}=action.payload;
-      console.log(itemId);
+      const { itemId } = action.payload;
       const index = state.items.findIndex(item => item.card.info.id === itemId);
       if (index !== -1) {
         state.items.splice(index, 1);
+        state.totalPrice = calculatePrice(state.items); // Recalculate total price
       }
     },
     clearCart: (state) => {

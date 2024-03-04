@@ -19,7 +19,7 @@ class MenuItems extends Component {
           {data &&
             data.map((ele) => (
               <div key={ele.id} className="pt-4 px-2 outline-none">
-                <img className="h-25 my-15 p-5"
+                <img className="h-25 my-15 p-5 object-cover drop-shadow-md rounded-md"
                   src={
                     "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/" +
                     ele.imageId

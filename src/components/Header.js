@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="flex justify-between shadow-lg">
       <div className="mx-6 my-2">
-        <img className="w-24 " src="food-logo.png" alt="logo_image"></img>
+        <img className="w-24 drop-shadow-2xl" src="food-logo.png" alt="logo_image"></img>
       </div>
       <div >
         <ul className="flex p-8 m-2 text-lg">
@@ -42,6 +42,7 @@ const Header = () => {
         </ul>
       </div>
     </div>
+   
   );
 };
 export default Header;

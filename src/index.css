@@ -2,15 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(https://db.onlinewebfonts.com/c/98a34676ba814c4848424f733521ea58?family=Basis+Grotesque+Pro+Bold);
 :global {
     @import 'node_modules/slick-carousel/slick/slick';
 }
 .active {
-    background-color: #4caf50; /* Change this to your desired active color */
-    color: #fff; /* Change this to your desired text color for active state */
+    background-color: #4caf50; 
+    color: #fff; 
   }
 /* shimmer ui */
-
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: arial,Helvetica Neue,sans-serif;
+}
 .box{
     background: #ddd;
     width: 272px;
@@ -58,3 +64,26 @@
         transform: translateX(180%);
     }
   }
+  .stripe {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #4caf50; 
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    z-index: 9999;
+    animation: stripeAppear 0.5s linear forwards;
+  }
+  
+  @keyframes stripeAppear {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  

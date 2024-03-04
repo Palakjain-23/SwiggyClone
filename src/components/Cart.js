@@ -13,7 +13,7 @@ const Cart = () => {
     };
     const totalPrice = useSelector((store) => store.cart.totalPrice);
     return (
-        <div className="text-center m-0 p-0 bg-gray-100">
+        <div className="text-center m-0 p-0">
                 {items.length === 0 ? (
                     <div className="flex flex-col align-middle mt-0 pt-5 pb-20">
                         <div className="flex justify-center mb-8">
@@ -22,8 +22,8 @@ const Cart = () => {
                         <div>
                         <h1 className="font-bold text-xl">Your cart is empty</h1>
                         <h3 className="text-sm mt-1">You can go to home page to view more restaurants</h3>
-                        <button className=" w-1/5 mt-10 px-2 py-1 text-white bg-green-400 drop-shadow-xl font-bold border hover:border-green-500">
-                        <Link to="/FlavourFleet/" className="flex justify-center">SEE RESTAURANTS NEAR YOU</Link>
+                        <button className=" w-1/5 mt-4 rounded-md px-2 py-1 text-white bg-green-400 drop-shadow-xl font-bold border hover:border-green-500">
+                        <Link to="/FlavourFleet/" className="flex justify-center text-sm py-3 px-2">SEE RESTAURANTS NEAR YOU</Link>
                         </button>
                         </div>                        
                     </div>
@@ -73,7 +73,7 @@ const Cart = () => {
                             <span className="w-2/5 p-2">Total ₹ {totalPrice.toFixed(2)}</span>
                             <div className="w-3/5">
                                 <Link to="/FlavourFleet/OrderPlaced">
-                                <button onClick={handelClearCart} className="m-2 px-2 py-3  text-xs text-white font-bold rounded-lg border hover:border-red-500 bg-red-400">Place Order</button>
+                                <button onClick={handelClearCart} className="m-2 px-2 py-3  text-xs text-white font-bold rounded-lg border  bg-red-500 hover:bg-green-400">Place Order</button>
                                 </Link>
                             </div>                   
                        </div>

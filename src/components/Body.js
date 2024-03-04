@@ -2,12 +2,12 @@ import RestaurantCard from "./RestaurantCard.js";
 import Shimmer from "./Shimmer.js";
 import Banner from "./Banner.js";
 import { Link } from "react-router-dom";
-import MenuItems from "./MenuItems.js";
+
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import useBanner from "../utils/useBanner";
-import useBanner2 from "../utils/useBanner2";
+
 import useRestaurantCard from "../utils/useRestaurantCard";
 import "../index.css";
 const Body = () => {
@@ -16,7 +16,7 @@ const Body = () => {
 
  // console.log("Restaurant",restaurants);
   const bannerData = useBanner();
-  const menuData = useBanner2();
+
   const [showFilteredResults, setShowFilteredResults] = useState(false);
 
   const handleFilterClick = (filterText) => {
@@ -39,35 +39,29 @@ const Body = () => {
       );
       setFilterdRestaurants(filteredList);
     }
-    else if (filterText === "nonveg") {
-      const filteredList = restaurants.filter(
-        (restaurant) =>
-          restaurant.info.veg != true
-      );
-      setFilterdRestaurants(filteredList);
-    }
+   
     setShowFilteredResults(true);
   };
 
   const handleToggleClick = () => {
     setShowFilteredResults(!showFilteredResults);
   };
-
+// console.log(restaurants);
   return restaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body ">
       <div className="m-8">
-        <h2 className="m-4 font-bold text-2xl">Best offers for you</h2>
+        <h2 className="m-4 font-bold text-2xl">What's on your mind?</h2>
         <Banner data={bannerData} />
       </div>
 
-      <div className="m-8">
+      {/* <div className="m-8">
         <h2 className="m-4 font-bold text-2xl">What's on your mind?</h2>
         <MenuItems data={menuData} />
-      </div>
+      </div> */}
 
-      <div className="m-8">
+      <div className="m-8 mb-20">
         <div>
           <h2 className="m-4 font-bold text-2xl">
             Restaurants with online food delivery in Dehradun
@@ -87,9 +81,6 @@ const Body = () => {
             </Button>
             <Button variant="outlined" onClick={() => handleFilterClick("pureveg")}>
               Pure Veg
-            </Button>
-            <Button variant="outlined" onClick={() => handleFilterClick("nonveg")}>
-              Non Veg
             </Button>
           </Stack>
         </div>
