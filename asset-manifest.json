@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/FlavourFleet/static/css/main.ead77a75.css",
-    "main.js": "/FlavourFleet/static/js/main.47a2b005.js",
-    "static/media/slick.svg": "/FlavourFleet/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/FlavourFleet/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/FlavourFleet/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/FlavourFleet/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/FlavourFleet/index.html",
-    "main.ead77a75.css.map": "/FlavourFleet/static/css/main.ead77a75.css.map",
-    "main.47a2b005.js.map": "/FlavourFleet/static/js/main.47a2b005.js.map"
+    "main.css": "/Palakjain-23/FlavourFleet/static/css/main.051054a8.css",
+    "main.js": "/Palakjain-23/FlavourFleet/static/js/main.47a2b005.js",
+    "static/media/slick.svg": "/Palakjain-23/FlavourFleet/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Palakjain-23/FlavourFleet/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Palakjain-23/FlavourFleet/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Palakjain-23/FlavourFleet/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/Palakjain-23/FlavourFleet/index.html",
+    "main.051054a8.css.map": "/Palakjain-23/FlavourFleet/static/css/main.051054a8.css.map",
+    "main.47a2b005.js.map": "/Palakjain-23/FlavourFleet/static/js/main.47a2b005.js.map"
   },
   "entrypoints": [
-    "static/css/main.ead77a75.css",
+    "static/css/main.051054a8.css",
     "static/js/main.47a2b005.js"
   ]
 }
