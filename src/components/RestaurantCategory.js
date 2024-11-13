@@ -13,7 +13,7 @@ const RestaurantCategory = ({ data }) => {
   const [expanded, setExpanded] = useState(false);
   const [showStripe, setShowStripe] = useState(false); 
   const dispatch = useDispatch();
-
+  // console.log(data);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -42,9 +42,8 @@ const RestaurantCategory = ({ data }) => {
           id="panel1bh-header"
         >
           <Typography
-            sx={{ width: "33%", flexShrink: 0, fontWeight: "bold" }}
-            className="font-bold"
-          >
+            sx={{ width: "33%", flexShrink: 0, fontWeight: "bold", fontSize:"18px"}}
+            className="font-bold text-xl">
             {data.title} ({data.itemCards.length})
           </Typography>
         </AccordionSummary>
@@ -57,15 +56,15 @@ const RestaurantCategory = ({ data }) => {
                   key={item?.card?.info?.id}
                 >
                   <div className="w-9/12">
-                    <div className="py-2">
-                      <span>{item?.card?.info?.name}</span>
-                      <span>
-                        - ⟨₹⟩
+                    <div className="py-2 ">
+                      <span className="font-bold text-xl">{item?.card?.info?.name}</span>
+                    </div>
+                    <p className="font-bold">
+                    ₹ 
                         {item?.card?.info?.price
                           ? item?.card?.info?.price / 100
                           : item?.card?.info?.defaultPrice / 100}
-                      </span>
-                    </div>
+                    </p>
                     <p className="text-xs ">
                       {item?.card?.info?.description}
                     </p>

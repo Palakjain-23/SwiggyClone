@@ -19,7 +19,7 @@ export default function Banner({data}) {
         data && data.map((ele) => {
        return(
         <div key={ele.id} className="pt-4 px-8 outline-none">
-            <img  alt="images"src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/" + ele.imageId} />
+            <img  alt="images"src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/" + ele.imageId} />
         </div>
        ) 
     })}

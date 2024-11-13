@@ -10,7 +10,7 @@ const RestaurantCard = (props) => {
     } = resData.info;
     // hover:w-64 hover:h-72
     return (
-        <div className="mx-2 my-5 pt-5 pb-5 w-64 h-72  rounded-3xl  hover:cursor-pointer transition-transform duration-300 transform hover:scale-95">
+        <div className="mx-2 my-5 pt-5 pb-5 w-64 h-72  rounded-3xl overflow-hidden hover:cursor-pointer transition-transform duration-300 transform hover:scale-95">
 
             <img alt="images" className="w-60 h-32 object-cover drop-shadow-md rounded-md align-middle  transform: scale(1.1);"
                 src={CDN_URL + cloudinaryImageId} />
@@ -23,7 +23,7 @@ const RestaurantCard = (props) => {
                     <h4>{resData.info.sla.deliveryTime} minutes</h4>
                 </div>
             </div>
-            <h4 className="overflow-x-hidden">{cuisines.join(",")}</h4>
+            <h4 className="overflow-hidden ">{cuisines.join(",")}</h4>
             <h4>{costForTwo}</h4>
         </div>
     );

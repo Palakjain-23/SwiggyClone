@@ -15,16 +15,14 @@ const RestaurantMenu = () => {
   //console.log("log in restaurantmanu",restaurants);
   const resInfo = useRestaurantMenu(resId);
  // const [showIndex, setShowIndex] = useState(null);
-// console.log(resInfo);
+console.log(resInfo);
   if (resInfo === null) return <Shimmer2/>;
-  const { name, cuisines, costForTwoMessage,avgRating} = resInfo?.cards[0]?.card?.card?.info;
-  const {deliveryTime}=resInfo?.cards[0]?.card?.card?.info?.sla;
-  const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter
+  const { name, cuisines, costForTwoMessage,avgRating} = resInfo?.cards[2]?.card?.card?.info;
+  const {deliveryTime}=resInfo?.cards[2]?.card?.card?.info?.sla;
+  const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter
     (c => c.card?.card?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-    // type.googleapis.com/swiggy.presentation.food.v2.MenuVegFilterAndBadge
-  // console.log(categories);
   return (
     <div className="m-0 p-4 bg-gray-100">
       <div className="flex m-auto w-6/12 mt-10 justify-between">
